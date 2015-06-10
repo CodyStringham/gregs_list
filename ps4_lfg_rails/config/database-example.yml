@@ -1,0 +1,20 @@
+default: &default
+  username:
+  password:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: gl_rails_development
+
+test:
+  <<: *default
+  database: gl_rails_test
+
+production:
+  <<: *default
+  database: gl_rails_production
+  username: gl_rails
+  password:
