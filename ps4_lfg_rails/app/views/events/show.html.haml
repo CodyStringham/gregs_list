@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Group size:
+  = @event.group_size
+%p
+  %b Game:
+  = @event.game.name
+
+= link_to 'Posts', game_event_posts_path(@event.game.id, @event), class: 'pure-button success'
+%br
+%br
+= link_to 'Edit', edit_game_event_path(@event.game.id, @event), class: 'pure-button'
+= link_to 'Back', game_events_path(@event.game.id), class: 'pure-button'

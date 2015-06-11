@@ -1,0 +1,14 @@
+#menu.custom-wrapper
+  .pure-g
+    .pure-u-1.pure-u-md-1-3
+      .pure-menu
+        = link_to 'PS4 LFG', root_path, class: 'pure-menu-heading custom-brand'
+        %a#toggle.custom-toggle{:href => "#"}
+          %s.bar
+          %s.bar
+    .pure-u-1.pure-u-md-2-3
+      .pure-menu.pure-menu-horizontal.custom-menu-3.custom-can-transform
+        %ul.pure-menu-list
+          - Game.all.each do |game|
+            %li.pure-menu-item= link_to game.name, game_path(game), class: 'pure-menu-link'
+

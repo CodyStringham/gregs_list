@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: gl_rails_development
+  database: ps4_lfg_rails_development
 
 test:
   <<: *default
-  database: gl_rails_test
+  database: ps4_lfg_rails_test
 
 production:
   <<: *default
-  database: gl_rails_production
-  username: gl_rails
+  database: ps4_lfg_rails_production
+  username: ps4_lfg_rails
   password:

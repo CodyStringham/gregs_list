@@ -1,3 +1,5 @@
+
+// Container
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -8,7 +10,6 @@
 h1,h2,h3,h4,h5,h6,p {
   margin: 0;
 }
-
 
 // Browser Compatability
 html, button, input, select, textarea,
@@ -27,4 +28,44 @@ html, button, input, select, textarea,
   }
 }
 
+// Buttons
+.pure-button {
+  &.primary,
+  &.secondary,
+  &.success,
+  &.error,
+  &.warning
+   {
+      color: white;
+      border-radius: 4px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  &.primary {
+    background-color: $blue;
+  }
+  &.secondary {
+    background-color: $sky-blue;
+  }
+  &.success {
+    background-color: $green;
+  }
+  &.error {
+    background-color: $red;
+  }
+  &.warning {
+    background-color: $yellow;
+  }
+  &.small {
+    font-size: 70%;
+  }
+  &.large {
+    font-size: 130%;
+  }
+}
 
+.pure-well {
+  background: #F0F0F0;
+  border: 1px solid #E6E6E6;
+  padding: 20px;
+  border-radius: 2px;
+}

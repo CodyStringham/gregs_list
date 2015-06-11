@@ -5,7 +5,13 @@
 @import "access-styles/typography";
 
 @import "purecss/base";
+@import "purecss/menus";
+@import "purecss/tables";
 @import "purecss/buttons";
 @import "purecss/grids-responsive";
 
+@import "navigation";
 @import "global";
+@import "games";
+@import "events";
+@import "users";

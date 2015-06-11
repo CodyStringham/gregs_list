@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @game.name
+
+%br
+= link_to 'Events', game_events_path(@game), class: 'pure-button success'
+%br
+%br
+= link_to 'Edit', edit_game_path(@game), class: 'pure-button'
+= link_to 'Back', games_path, class: 'pure-button'
