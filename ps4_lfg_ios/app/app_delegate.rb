@@ -5,14 +5,13 @@ class AppDelegate
     @window.makeKeyAndVisible
 
     # Sets colors for the icons
-    # UITabBarItem.appearance.setTitleTextAttributes({
-    #   NSForegroundColorAttributeName => UIColor.orangeColor
-    # }, forState: UIControlStateNormal)
+    UITabBarItem.appearance.setTitleTextAttributes({
+      NSForegroundColorAttributeName => "fff".to_color
+    }, forState: UIControlStateNormal)
 
-    # UITabBarItem.appearance.setTitleTextAttributes({
-    #   NSForegroundColorAttributeName => UIColor.greenColor
-    # }, forState: UIControlStateSelected)
-
+    UITabBarItem.appearance.setTitleTextAttributes({
+      NSForegroundColorAttributeName => "ffa000".to_color
+    }, forState: UIControlStateSelected)
 
     true
   end
@@ -25,21 +24,22 @@ class AppDelegate
     Dispatch.once do
       @tab_bar_controller = UITabBarController.new
       @tab_bar_controller.setViewControllers([
-        MyViewController.create("One", image: "one", tag: 0),
-        MyViewController.create("Two", image: "two", tag: 1),
-        # MyViewController.create(UITabBarSystemItemFavorites, image: nil, tag: 2),
-        MyViewController.create("Favorites", image: "favorite", tag: 1),
-        MyViewController.create("Three", image: "three", tag: 3),
-        MyViewController.create("Four", image: "four", tag: 4)
+        PS4ViewController.create("One", image: "one", tag: 0),
+        PS4ViewController.create("Two", image: "two", tag: 1),
+        # PS4ViewController.create(UITabBarSystemItemFavorites, image: nil, tag: 2),
+        PS4ViewController.create("Favorites", image: "favorite", tag: 1),
+        PS4ViewController.create("Three", image: "three", tag: 3),
+        PS4ViewController.create("Four", image: "four", tag: 4)
       ], animated: false)
       @tab_bar_controller.selectedIndex = 2
 
       # Sets colors for the nav bar
-      # @tab_bar_controller.tabBar.tap do |tab_bar|
-      #   tab_bar.barTintColor = UIColor.purpleColor
-      #   tab_bar.tintColor = UIColor.orangeColor
-      #   tab_bar.selectedImageTintColor = UIColor.greenColor
-      # end
+      @tab_bar_controller.tabBar.tap do |tab_bar|
+        tab_bar.barTintColor = "#0d47a1".to_color
+        tab_bar.tintColor = "000".to_color
+        tab_bar.selectedImageTintColor = "ffa000".to_color
+
+      end
     end
 
     # Must return the object

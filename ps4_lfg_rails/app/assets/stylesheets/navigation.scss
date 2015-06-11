@@ -1,5 +1,5 @@
 .custom-wrapper {
-  background-color: #e2e2e2;
+  background-color: $primary;
   margin-bottom: 1em;
   -webkit-font-smoothing: antialiased;
   height: 2.1em;
@@ -11,6 +11,14 @@
   .pure-g {
     max-width: 1200px;
     margin: 0 auto;
+    .pure-menu-heading, .pure-menu-link {
+      color: #fff;
+    }
+    .pure-menu-link {
+      &:hover, &:active {
+        background: $primary-light;
+      }
+    }
   }
 }
 
@@ -38,7 +46,7 @@
 }
 
 .custom-toggle .bar {
-  background-color: #777;
+  background-color: #fff;
   display: block;
   width: 20px;
   height: 2px;
