@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @events = @game.events
   end
 
   def new
@@ -39,7 +40,11 @@ class GamesController < ApplicationController
 
   private
     def set_game
+      begin
       @game = Game.friendly.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to "/404"
+      end
     end
 
     def game_params

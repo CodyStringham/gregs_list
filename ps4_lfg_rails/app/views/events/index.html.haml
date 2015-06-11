@@ -20,7 +20,7 @@
             %td= event.name
             %td= event.group_size
             %td= event.game.name
-            %td= link_to 'Show', game_event_path(event.game, event), class: 'pure-button small'
+            %td= link_to 'Show', direct_game_event_path(event.game, event), class: 'pure-button small'
             %td= link_to 'Edit', edit_game_event_path(event.game, event), class: 'pure-button small'
             %td= link_to 'Destroy', game_event_path(event.game, event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'pure-button small error'
 

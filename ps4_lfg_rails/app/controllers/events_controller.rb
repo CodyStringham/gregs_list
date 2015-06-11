@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @posts = @event.posts
   end
 
   def new
@@ -40,7 +41,11 @@ class EventsController < ApplicationController
 
   private
     def set_event
-      @event = Event.find(params[:id])
+      begin
+      @event = Event.friendly.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to "/404"
+      end
     end
 
     def set_game

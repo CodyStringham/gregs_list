@@ -1,4 +1,4 @@
-= form_for @post, url: game_event_posts_path(@post.game, @post.event), html: {class: 'pure-form pure-form-stacked'} do |f|
+= form_for [@post.game, @post.event, @post], html: {class: 'pure-form pure-form-stacked'} do |f|
   - if @post.errors.any?
     #error_explanation.pad-10
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"

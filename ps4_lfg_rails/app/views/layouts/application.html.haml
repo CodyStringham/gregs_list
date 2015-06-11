@@ -7,8 +7,9 @@
     = csrf_meta_tags
   %body
     = render partial: 'layouts/navigation'
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, msg, class: name
+    .container.notices
+      .pad-10
+        - flash.each do |name, msg|
+          = content_tag :div, msg, class: "#{name} pure-well"
 
       = yield

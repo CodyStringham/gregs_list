@@ -9,9 +9,15 @@
     .pure-u-1.pure-u-md-2-3
       .pure-menu.pure-menu-horizontal.text-right.custom-can-transform
         %ul.pure-menu-list
-          - Game.all.each do |game|
-            %li.pure-menu-item= link_to game.name, game_path(game), class: 'pure-menu-link'
 
           // Admin at some point
-          %li.pure-menu-item= link_to 'New Game', new_game_path, class: 'pure-menu-link'
+          - if current_admin?
+            %li.pure-menu-item= link_to 'New Game', new_game_path, class: 'pure-menu-link'
 
+          - if user_signed_in?
+            - Game.all.each do |game|
+              %li.pure-menu-item= link_to game.name, direct_game_path(game), class: 'pure-menu-link'
+            %li.pure-menu-item= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'pure-menu-link'
+          - else
+            %li.pure-menu-item= link_to "Sign In", new_user_session_path, class: 'pure-menu-link'
+            %li.pure-menu-item= link_to "Sign Up", new_user_registration_path, class: 'pure-menu-link'

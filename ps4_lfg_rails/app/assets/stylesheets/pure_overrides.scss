@@ -23,28 +23,32 @@ html, button, input, select, textarea,
 // Buttons
 .pure-button {
   &.primary,
-  &.secondary,
+  &.primary-light,
+  &.accent,
+  &.accent-light,
   &.success,
-  &.error,
-  &.warning {
+  &.error {
     color: white;
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   }
   &.primary {
-    background-color: $blue;
+    background-color: $primary;
   }
-  &.secondary {
-    background-color: $sky-blue;
+  &.primary-light {
+    background-color: $primary-light;
+  }
+  &.accent {
+    background-color: $accent;
+  }
+  &.accent-light {
+    background-color: $accent-light;
   }
   &.success {
     background-color: $green;
   }
   &.error {
     background-color: $red;
-  }
-  &.warning {
-    background-color: $yellow;
   }
   &.small {
     font-size: 70%;
@@ -59,4 +63,17 @@ html, button, input, select, textarea,
   border: 1px solid #E6E6E6;
   padding: 20px;
   border-radius: 2px;
+  &.notice {
+    background: $green;
+    border: 1px solid darken($green, 5%);
+    color: white;
+  }
+  &.alert {
+    background: $red;
+    border: 1px solid darken($red, 5%);
+    color: white;
+  }
 }
+
+
+

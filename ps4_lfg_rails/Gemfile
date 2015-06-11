@@ -29,7 +29,7 @@ gem 'browser'
 gem 'friendly_id', '~> 5.1.0'
 
 group :development do
-  gem 'jazz_fingers'
+  gem 'letter_opener'
   gem 'powder'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -43,4 +43,10 @@ group :development do
   gem 'guard-rails'
   gem 'guard-pow'
   gem 'ruby_gntp'
+end
+
+group :development, :test do
+  gem 'jazz_fingers'
+  gem 'ffaker'
+  gem 'factory_girl_rails'
 end

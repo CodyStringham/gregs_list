@@ -1,14 +1,8 @@
 .pure-g
-  .pure-u-1.pure-u-sm-1-2.pad-10
+  .pure-u-1.pad-10
     %h1
       = @game.name
-  .pure-u-1.pure-u-sm-1-2.pad-10
-    .text-right
-      = link_to 'Edit', edit_game_path(@game), class: 'pure-button'
-      = link_to 'Delete', edit_game_path(@game), class: 'pure-button error'
 
-.pure-g
-  .pure-u-1.pad-10
-    = link_to 'Events', game_events_path(@game), class: 'pure-button success'
+= render partial: 'games/events_list'
 
 
