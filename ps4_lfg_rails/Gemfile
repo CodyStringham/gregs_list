@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rabl'
 gem 'oj'
 
+gem 'browser'
+
 group :development do
   gem 'jazz_fingers'
   gem 'powder'
