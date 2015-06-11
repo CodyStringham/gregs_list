@@ -1,7 +1,10 @@
-%h1 Editing post
+.pure-g
+  .pure-u-1.pad-10
+    %h1 Editing post
 
 = render 'form'
 
-%br
-= link_to 'Show', game_event_post_path(@post.game, @post.event, @post), class: 'pure-button'
-= link_to 'Back', game_event_posts_path(@post.game, @post.event), class: 'pure-button'
+.pure-g
+  .pure-u-1.pad-10
+    = link_to 'Show', game_event_post_path(@post.game, @post.event, @post), class: 'pure-button'
+    = link_to 'Back', game_event_posts_path(@post.game, @post.event), class: 'pure-button'

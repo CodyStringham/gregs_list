@@ -1,16 +1,15 @@
-= form_for @post, url: game_event_posts_path(@post.game, @post.event) do |f|
+= form_for @post, url: game_event_posts_path(@post.game, @post.event), html: {class: 'pure-form pure-form-stacked'} do |f|
   - if @post.errors.any?
-    #error_explanation
+    #error_explanation.pad-10
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
+  .pad-10
     = f.label :title
     = f.text_field :title
-  .field
+  .pad-10
     = f.label :checkpoint
     = f.text_field :checkpoint
-  .actions
+  .pad-10
     = f.submit 'Save', class: 'pure-button'

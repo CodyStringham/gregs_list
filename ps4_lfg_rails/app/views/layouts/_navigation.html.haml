@@ -7,8 +7,11 @@
           %s.bar
           %s.bar
     .pure-u-1.pure-u-md-2-3
-      .pure-menu.pure-menu-horizontal.custom-menu-3.custom-can-transform
+      .pure-menu.pure-menu-horizontal.text-right.custom-can-transform
         %ul.pure-menu-list
           - Game.all.each do |game|
             %li.pure-menu-item= link_to game.name, game_path(game), class: 'pure-menu-link'
+
+          // Admin at some point
+          %li.pure-menu-item= link_to 'New Game', new_game_path, class: 'pure-menu-link'
 

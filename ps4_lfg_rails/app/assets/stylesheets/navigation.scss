@@ -15,10 +15,15 @@
 }
 
 .custom-wrapper.open {
-  height: 50em;
+  height: 75em;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.custom-menu-3 {
+.text-right {
   text-align: right;
 }
 
@@ -69,7 +74,7 @@
 }
 
 @media (max-width: 47.999em) {
-  .custom-menu-3 {
+  .text-right {
     text-align: left;
   }
   .custom-toggle {
