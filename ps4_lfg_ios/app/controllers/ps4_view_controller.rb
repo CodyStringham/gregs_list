@@ -18,10 +18,9 @@ class PS4ViewController < UIViewController
 
   def viewDidLoad
     super
-    # view.backgroundColor = UIColor.whiteColor
-    self.view.loadRequest(
-      NSURLRequest.requestWithURL(NSURL.URLWithString("http://ps4-lfg-rails.dev/destiny"))
-    )
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("http://ps4-lfg-rails.dev/destiny"))
+    request.setValue("false", forHTTPHeaderField:"navigation")
+    self.view.loadRequest(request)
   end
 
   private

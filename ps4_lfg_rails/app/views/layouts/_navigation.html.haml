@@ -15,7 +15,7 @@
 
           - if user_signed_in?
             - Game.all.each do |game|
-              %li.pure-menu-item= link_to game.name, direct_game_path(game), class: 'pure-menu-link'
+              %li.pure-menu-item= link_to game.name, direct_game_path(game), class: "pure-menu-link"
             %li.pure-menu-item= link_to "Profile", edit_user_registration_path, class: 'pure-menu-link'
             %li.pure-menu-item= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'pure-menu-link'
           - else

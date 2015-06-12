@@ -1,6 +1,14 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+
+  def default_url_options
+    if session[:show_navigation] == 'false'
+      {:host => "hybrid", protocol: 'link'}
+    else
+      {}
+    end
+  end
 
   def index
     @games = Game.all
