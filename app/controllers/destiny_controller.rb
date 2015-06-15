@@ -16,7 +16,7 @@ class DestinyController < UIViewController
   def viewDidAppear(anitmated)
     super
     self.title = "Destiny"
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("http://ps4-lfg-rails.dev/destiny"))
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end

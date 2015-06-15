@@ -13,7 +13,7 @@ class EventShowPushController < UIViewController
   def viewDidAppear(anitmated)
     super
     self.title = @title.gsub("destiny/", "").gsub("bloodborne/", "").gsub("-", " ").capitalize
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("http://ps4-lfg-rails.dev/#{@title}"))
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/#{@title}"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end
