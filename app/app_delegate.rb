@@ -21,7 +21,10 @@ class AppDelegate
     bloodborne_controller = BloodborneController.alloc.init
     bloodborne_navigation_controller = UINavigationController.alloc.initWithRootViewController(bloodborne_controller)
 
-    [destiny_navigation_controller, bloodborne_navigation_controller]
+    destiny_json_controller = DestinyJsonController.alloc.init
+    destiny_json_navigation_controller = UINavigationController.alloc.initWithRootViewController(destiny_json_controller)
+
+    [destiny_navigation_controller, bloodborne_navigation_controller, destiny_json_navigation_controller]
   end
 
 end
