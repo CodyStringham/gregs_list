@@ -14,7 +14,7 @@ class LoadWebView
     cache.setDiskCapacity(512*1024)
 
     # Request with cache and headers
-    request = NSMutableURLRequest.alloc.initWithURL(view_url, cachePolicy:NSURLRequestReturnCacheDataElseLoad, timeoutInterval:10.0)
+    request = NSMutableURLRequest.alloc.initWithURL(view_url, cachePolicy:NSURLRequestUseProtocolCachePolicy, timeoutInterval: 60.0)
     request.setValue("false", forHTTPHeaderField:"navigation")
 
     @owner.view.loadRequest(request)
