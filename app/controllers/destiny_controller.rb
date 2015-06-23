@@ -8,16 +8,25 @@ class DestinyController < UIViewController
     self
   end
 
+
+
   def loadView
     self.view = UIWebView.alloc.init
     view.delegate = web_view_delegate
   end
 
-  def viewDidAppear(anitmated)
+  def viewDidLoad
     super
     self.title = "Destiny"
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny"))
-    request.setValue("false", forHTTPHeaderField:"navigation")
+
+    view_url = NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny")
+    cache = NSURLCache.sharedURLCache
+    cache.setMemoryCapacity(4 * 1024 * 1024)
+    cache.setDiskCapacity(512*1024)
+    request = NSURLRequest.requestWithURL(view_url, cachePolicy:NSURLRequestReturnCacheDataElseLoad, timeoutInterval:10.0)
+
+    # request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny"))
+    # request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end
 
