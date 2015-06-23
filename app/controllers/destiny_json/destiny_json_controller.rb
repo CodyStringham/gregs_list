@@ -161,7 +161,6 @@ class DestinyShowPostController < UIViewController
   def viewDidAppear(anitmated)
     super
     self.title = @title[0..10] + "..."
-    puts "https://ps4-lfg.herokuapp.com/destiny/#{@path}/posts/#{@id}"
     request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny/#{@path}/posts/#{@id}"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
