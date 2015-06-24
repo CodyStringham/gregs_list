@@ -5,7 +5,11 @@ class DestinyJsonController < UIViewController
     super
     self.tabBarItem = UITabBarItem.alloc.init
     self.tabBarItem.title = "DestinyJSON"
-    self.tabBarItem.setFinishedSelectedImage(UIImage.imageNamed("destiny.png"), withFinishedUnselectedImage:UIImage.imageNamed("destiny.png"))
+
+    selected = UIImage.imageNamed("destiny-on.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    unselected = UIImage.imageNamed("destiny.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    self.tabBarItem.setFinishedSelectedImage(selected, withFinishedUnselectedImage: unselected)
+
     self
   end
 

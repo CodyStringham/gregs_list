@@ -4,7 +4,11 @@ class BloodborneController < UIViewController
     super
     self.tabBarItem = UITabBarItem.alloc.init
     self.tabBarItem.title = "Bloodborne"
-    self.tabBarItem.setFinishedSelectedImage(UIImage.imageNamed("bloodborne.png"), withFinishedUnselectedImage:UIImage.imageNamed("bloodborne.png"))
+
+    selected = UIImage.imageNamed("bloodborne-on.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    unselected = UIImage.imageNamed("bloodborne.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    self.tabBarItem.setFinishedSelectedImage(selected, withFinishedUnselectedImage: unselected)
+
     self
   end
 

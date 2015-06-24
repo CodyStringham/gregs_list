@@ -4,7 +4,11 @@ class SettingsController < UIViewController
     super
     self.tabBarItem = UITabBarItem.alloc.init
     self.tabBarItem.title = "Settings"
-    self.tabBarItem.setFinishedSelectedImage(UIImage.imageNamed("settings.png"), withFinishedUnselectedImage:UIImage.imageNamed("settings.png"))
+
+    selected = UIImage.imageNamed("settings-on.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    unselected = UIImage.imageNamed("settings.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    self.tabBarItem.setFinishedSelectedImage(selected, withFinishedUnselectedImage: unselected)
+
     self
   end
 

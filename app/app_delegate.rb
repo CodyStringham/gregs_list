@@ -2,6 +2,31 @@ class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @window.rootViewController = tab_controller
+
+    # Dimmed unselected tab bar text
+    UITabBarItem.appearance.setTitleTextAttributes({
+      NSForegroundColorAttributeName => "#84b6e1".to_color
+    }, forState: UIControlStateNormal)
+
+    # White selected tab bar text
+    UITabBarItem.appearance.setTitleTextAttributes({
+      NSForegroundColorAttributeName => "#fff".to_color
+    }, forState: UIControlStateSelected)
+
+    # Blue Background in tab bar
+    UITabBar.appearance.setBarTintColor("#0d47a1".to_color)
+
+    # Change navigation bar background color
+    UINavigationBar.appearance.setBarTintColor("#0d47a1".to_color)
+
+    # White navigation title text
+    UINavigationBar.appearance.setTitleTextAttributes(
+      NSForegroundColorAttributeName => "#fff".to_color
+    )
+
+    # White navigation button text
+    UINavigationBar.appearance.setTintColor(UIColor.whiteColor)
+
     @window.makeKeyAndVisible
     true
   end

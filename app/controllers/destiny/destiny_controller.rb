@@ -4,7 +4,11 @@ class DestinyController < UIViewController
     super
     self.tabBarItem = UITabBarItem.alloc.init
     self.tabBarItem.title = "Destiny"
-    self.tabBarItem.setFinishedSelectedImage(UIImage.imageNamed("destiny.png"), withFinishedUnselectedImage:UIImage.imageNamed("destiny.png"))
+
+    selected = UIImage.imageNamed("destiny-on.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    unselected = UIImage.imageNamed("destiny.png").imageWithRenderingMode(UIImageRenderingModeAlwaysOriginal)
+    self.tabBarItem.setFinishedSelectedImage(selected, withFinishedUnselectedImage: unselected)
+
     self
   end
 
@@ -17,6 +21,10 @@ class DestinyController < UIViewController
     super
     self.title = "Destiny"
     LoadWebView.new(self, "https://ps4-lfg.herokuapp.com/destiny").request_and_load # cache and headers
+  end
+
+  def preferredStatusBarStyle
+    UIStatusBarStyleLightContent
   end
 
   private
