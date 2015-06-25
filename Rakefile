@@ -11,7 +11,10 @@ end
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'ps4_lfg_ios'
-  app.provisioning_profile = '/Users/cody/Library/MobileDevice/Provisioning Profiles/Access_Labs.mobileprovision'
+  app.provisioning_profile = '~/Library/MobileDevice/Provisioning Profiles/Access_Labs.mobileprovision'
+
+  # all app icons
+  app.icons = Dir.glob("resources/AppIcon*.png").map{|icon| icon.split("/").last}
 
   # White status bar for dark background
   app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
