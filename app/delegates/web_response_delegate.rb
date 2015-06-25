@@ -24,13 +24,13 @@ class WebResponseDelegate
   end
 
   def webViewDidStartLoad(webview)
-    UIApplication.sharedApplication.networkActivityIndicatorVisible = true
     @load_label.hidden = false
+    UIApplication.sharedApplication.networkActivityIndicatorVisible = true
   end
 
   def webViewDidFinishLoad(webview)
-    UIApplication.sharedApplication.networkActivityIndicatorVisible = false
     @load_label.hidden = true
+    UIApplication.sharedApplication.networkActivityIndicatorVisible = false
   end
 
 end
