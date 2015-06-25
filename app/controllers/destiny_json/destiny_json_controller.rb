@@ -151,6 +151,7 @@ end
 class DestinyShowPostController < UIViewController
 
   def initWith(options = {})
+    super
     self.init
     @path     = options[:path]
     @id       = options[:id]

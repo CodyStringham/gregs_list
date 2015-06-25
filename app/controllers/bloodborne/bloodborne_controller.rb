@@ -13,7 +13,8 @@ class BloodborneController < UIViewController
   end
 
   def loadView
-    self.view = UIWebView.alloc.init
+    self.view = UIWebView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    add_load_label
     view.delegate = web_view_delegate
   end
 
@@ -25,6 +26,11 @@ class BloodborneController < UIViewController
     request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/bloodborne"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
+  end
+
+  def add_load_label
+    @load_label = AddLoadLabel.alloc.initWithOwner(self).generate_label
+    self.view.addSubview(@load_label)
   end
 
   private
