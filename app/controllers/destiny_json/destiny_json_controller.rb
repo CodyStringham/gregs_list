@@ -140,7 +140,7 @@ class DestinyJsonPushController < UIViewController
    end
 
    def init_new_push_controller(path, id, title)
-     controller = DestinyShowPostController.alloc.initWith(path: path, id: id, title: title)
+     controller = DestinyShowPostController.alloc.initWith(path, id, title)
      self.navigationController.pushViewController(controller, animated: true)
    end
 
@@ -150,12 +150,11 @@ end
 # Show Post Controller
 class DestinyShowPostController < UIViewController
 
-  def initWith(options = {})
-    super
+  def initWith(path, id, title)
     self.init
-    @path     = options[:path]
-    @id       = options[:id]
-    @title    = options[:title]
+    @path     = path
+    @id       = id
+    @title    = title
     self
   end
 
