@@ -4,7 +4,7 @@ class WebResponseDelegate
     self.init
     @owner = owner
     @owner_type = owner_type
-    @load_label = @owner.instance_variable_get("@load_label")
+    @notifier = Motion::Blitz
     self
   end
 
@@ -24,12 +24,12 @@ class WebResponseDelegate
   end
 
   def webViewDidStartLoad(webview)
-    @load_label.hidden = false
+    @notifier.show('')
     UIApplication.sharedApplication.networkActivityIndicatorVisible = true
   end
 
   def webViewDidFinishLoad(webview)
-    @load_label.hidden = true
+    @notifier.dismiss
     UIApplication.sharedApplication.networkActivityIndicatorVisible = false
   end
 
