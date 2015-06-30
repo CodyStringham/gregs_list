@@ -1,7 +1,8 @@
-class AppDelegate
+class AppDelegate < PM::Delegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @window.rootViewController = tab_controller
+    @window.rootViewController = create_tab_controller
+    @window.makeKeyAndVisible
 
     # Dimmed unselected tab bar text
     UITabBarItem.appearance.setTitleTextAttributes({
@@ -27,13 +28,17 @@ class AppDelegate
     # White navigation button text
     UINavigationBar.appearance.setTintColor(UIColor.whiteColor)
 
-    @window.makeKeyAndVisible
+    # if App::Persistence['authToken'].nil?
+    #   @window.rootViewController.setSelectedIndex(3)
+    #   show_welcome_controller
+    # end
+
     true
   end
 
   private
 
-  def tab_controller
+  def create_tab_controller
     @tab_bar_controller = UITabBarController.alloc.init
     @tab_bar_controller.viewControllers = tab_view_controllers
     @tab_bar_controller

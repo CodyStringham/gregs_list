@@ -4,6 +4,8 @@ require 'motion/project/template/ios'
 
 begin
   require 'bundler'
+  require 'motion-blitz'
+  require 'afmotion'
   Bundler.require
 rescue LoadError
 end
@@ -19,4 +21,5 @@ Motion::Project::App.setup do |app|
   # White status bar for dark background
   app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
   app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
+
 end
