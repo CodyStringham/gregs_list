@@ -22,7 +22,7 @@ class DestinyJsonController < UIViewController
 
   def get_info
     # Our request url, you are going to need a forcase IO api key,
-    url_string = "https://ps4-lfg.herokuapp.com/destiny.json"
+    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/destiny.json"
 
     # Send the request and encode it for us `app/lib/url_request.rb`
     url_response = UrlRequest.send_request(url_string)
@@ -96,7 +96,7 @@ class DestinyJsonPushController < UIViewController
 
   def get_info
     # Our request url, you are going to need a forcase IO api key,
-    url_string = "https://ps4-lfg.herokuapp.com/destiny/#{@title}.json"
+    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/destiny/#{@title}.json"
 
     # Send the request and encode it for us `app/lib/url_request.rb`
     url_response = UrlRequest.send_request(url_string)
@@ -165,7 +165,7 @@ class DestinyShowPostController < UIViewController
   def viewDidAppear(anitmated)
     super
     self.title = @title[0..10] + "..."
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny/#{@path}/posts/#{@id}"))
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("#{AppDelegate::WEB_APPLICATION_URL}/destiny/#{@path}/posts/#{@id}"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end
@@ -189,7 +189,7 @@ class DestinyCreatePostController < UIViewController
   def viewDidAppear(anitmated)
     super
     self.title = "New Post"
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/destiny/#{@title}/posts/new"))
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("#{AppDelegate::WEB_APPLICATION_URL}/destiny/#{@title}/posts/new"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end

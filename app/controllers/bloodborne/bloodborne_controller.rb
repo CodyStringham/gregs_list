@@ -22,7 +22,7 @@ class BloodborneController < UIViewController
     self.title = "Bloodborne"
 
     # To set a control, this isn't cached
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("https://ps4-lfg.herokuapp.com/bloodborne"))
+    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("#{AppDelegate::WEB_APPLICATION_URL}/bloodborne"))
     request.setValue("false", forHTTPHeaderField:"navigation")
     self.view.loadRequest(request)
   end

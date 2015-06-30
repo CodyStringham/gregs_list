@@ -1,5 +1,6 @@
 class RegisterScreen < PM::FormScreen
-  title "Login Screen"
+  attr_accessor :original_owner
+  title "Register Screen"
 
   def form_data
     [{

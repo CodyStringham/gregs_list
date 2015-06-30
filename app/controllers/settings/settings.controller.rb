@@ -21,7 +21,7 @@ class SettingsController < UIViewController
   end
 
   def login_behind_scenes
-    @login_client = AFMotion::Client.build("http://ps4-lfg-rails.dev/") do
+    @login_client = AFMotion::Client.build("#{AppDelegate::WEB_APPLICATION_URL}/") do
       header "Accept", "application/json"
       header "Content-Type", "application/json"
       request_serializer :json
@@ -34,8 +34,6 @@ class SettingsController < UIViewController
       }
     })
   end
-
-
 
   def add_clear_cache_button
     @theButton = UIButton.buttonWithType(UIButtonTypeRoundedRect)

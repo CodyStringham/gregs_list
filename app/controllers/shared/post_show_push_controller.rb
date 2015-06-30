@@ -15,7 +15,7 @@ class PostShowPushController < UIViewController
   def viewDidLoad
     super
     self.title = "Post"
-    LoadWebView.new(self, "https://ps4-lfg.herokuapp.com/#{@title}").request_and_load # cache and headers
+    LoadWebView.new(self, "#{AppDelegate::WEB_APPLICATION_URL}/#{@title}").request_and_load # cache and headers
   end
 
   def webViewDidStartLoad(webview)

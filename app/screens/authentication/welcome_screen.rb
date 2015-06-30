@@ -47,14 +47,10 @@ class WelcomeScreen < PM::Screen
   end
 
   def register
-    controller = RegisterScreen.new
-    controller.original_owner = self.original_owner
-    open controller
+    open RegisterScreen.new(original_owner: self.original_owner)
   end
 
   def login
-    controller = LoginScreen.new
-    controller.original_owner = self.original_owner
-    open controller
+    open LoginScreen.new(original_owner: self.original_owner)
   end
 end

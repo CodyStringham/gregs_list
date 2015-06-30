@@ -20,7 +20,7 @@ class DestinyController < UIViewController
   def viewDidLoad
     super
     self.title = "Destiny"
-    LoadWebView.new(self, "https://ps4-lfg.herokuapp.com/destiny").request_and_load # cache and headers
+    LoadWebView.new(self, "#{AppDelegate::WEB_APPLICATION_URL}/destiny").request_and_load # cache and headers
   end
 
   private

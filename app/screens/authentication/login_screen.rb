@@ -32,7 +32,7 @@ class LoginScreen < PM::FormScreen
   end
 
   def send_request
-    @client = AFMotion::Client.build("https://ps4-lfg.herokuapp.com/") do
+    @client = AFMotion::Client.build("#{AppDelegate::WEB_APPLICATION_URL}/") do
       header "Accept", "application/json"
       header "Content-Type", "application/json"
       request_serializer :json
@@ -45,10 +45,11 @@ class LoginScreen < PM::FormScreen
         password: render_form[:password]
       }
     }) do |result|
-      puts result.inspect
-      user = result.object["user"]
-      puts user
-      result.object["user"] ? authenticated_user(user["auth_token"], user["email"]) : unauthorized_user
+      if user = result.object["user"]
+        authenticated_user(result.object["user"]["auth_token"], result.object["user"]["email"])
+      else
+        unauthorized_user
+      end
     end
   end
 
@@ -57,11 +58,13 @@ class LoginScreen < PM::FormScreen
     App::Persistence['userEmail'] = email
     self.dismissViewControllerAnimated(true, completion: nil)
     self.original_owner.public_send(:viewDidLoad)
-    puts self.original_owner
   end
 
   def unauthorized_user
-    App.alert("Unauthorized.", {cancel_button_title: "Ok", message: "Please register for an account if you haven't already."})
+    App.alert("Unauthorized.", {
+      cancel_button_title: "Ok",
+      message: "Please register for an account if you haven't already."
+    })
   end
 
 end

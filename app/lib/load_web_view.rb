@@ -8,34 +8,34 @@ class LoadWebView
   def request_and_load
 
     if App::Persistence['authToken'].nil? || App::Persistence['userEmail'].nil?
-      show_welcome_controller
+      # Fixes: Unbalanced calls to begin/end appearance transitions
+      self.performSelector('present_welcome_controller', withObject:nil, afterDelay:0.1)
       return false
     end
 
     view_url = NSURL.URLWithString(@path)
 
+    # Request with cache and headers
     # Define cach settings
     cache = NSURLCache.sharedURLCache
     cache.setMemoryCapacity(4 * 1024 * 1024)
     cache.setDiskCapacity(512*1024)
-
-    # Request with cache and headers
     request = NSMutableURLRequest.alloc.initWithURL(view_url, cachePolicy:NSURLRequestUseProtocolCachePolicy, timeoutInterval: 60.0)
     request.setValue("false", forHTTPHeaderField:"navigation")
-    request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"user_token")
-    request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"user_email")
+    request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"user-token")
+    request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"user-email")
 
     @owner.view.loadRequest(request)
   end
 
   private
 
-  def show_welcome_controller
-    controller = WelcomeScreen.alloc.init
+  def present_welcome_controller
+    controller = WelcomeScreen.alloc.initWithNibName(nil, bundle:nil)
     controller.original_owner = @owner
-    @owner.presentViewController(
+    App.delegate.window.rootViewController.presentViewController(
       UINavigationController.alloc.initWithRootViewController(controller),
-      animated:true,
+      animated: true,
       completion: lambda {}
     )
   end

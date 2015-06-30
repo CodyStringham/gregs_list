@@ -1,5 +1,10 @@
 class AppDelegate < PM::Delegate
+
+  # WEB_APPLICATION_URL = 'https://ps4-lfg.herokuapp.com'
+  WEB_APPLICATION_URL = 'http://ps4-lfg-rails.dev'
+
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @window.rootViewController = create_tab_controller
     @window.makeKeyAndVisible
