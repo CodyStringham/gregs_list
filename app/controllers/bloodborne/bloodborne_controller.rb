@@ -22,9 +22,7 @@ class BloodborneController < UIViewController
     self.title = "Bloodborne"
 
     # To set a control, this isn't cached
-    request = NSMutableURLRequest.alloc.initWithURL(NSURL.URLWithString("#{AppDelegate::WEB_APPLICATION_URL}/bloodborne"))
-    request.setValue("false", forHTTPHeaderField:"navigation")
-    self.view.loadRequest(request)
+    LoadWebView.new(self, "#{AppDelegate::WEB_APPLICATION_URL}/bloodborne").request_and_load # cache and headers
   end
 
   private

@@ -20,15 +20,22 @@ class EventShowPushController < UIViewController
       action:'create_post'
     )
     self.navigationItem.rightBarButtonItem = right_button
-    send_request_and_load
+    LoadWebView.new(self, request_url).request_and_load # cache and headers
   end
 
   def request_url
     "#{AppDelegate::WEB_APPLICATION_URL}/#{@title}"
   end
 
-  def send_request_and_load
-    LoadWebView.new(self, request_url).request_and_load # cache and headers
+  # Reload reqquest ignoring cached data
+  def reload_fresh_data
+    view_url = NSURL.URLWithString(request_url)
+    request = NSMutableURLRequest.alloc.initWithURL(view_url, cachePolicy:NSURLRequestReloadIgnoringCacheData)
+    request.setValue("false", forHTTPHeaderField:"navigation")
+    request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"User-Token")
+    request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"User-Email")
+    self.view.loadRequest(request)
+    self.view.performSelector('reload', withObject:nil, afterDelay:0.1)
   end
 
   private

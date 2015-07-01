@@ -10,7 +10,7 @@ class LoginScreen < PM::FormScreen
         name: "email",
         title: "Email",
         type: :email,
-        value: "test@test.com"
+        value: "gamer@test.com"
         # image: UIImage.imageNamed('email_icon')
       }, {
         name: "password",

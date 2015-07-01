@@ -22,8 +22,8 @@ class LoadWebView
     cache.setDiskCapacity(512*1024)
     request = NSMutableURLRequest.alloc.initWithURL(view_url, cachePolicy:NSURLRequestUseProtocolCachePolicy, timeoutInterval: 60.0)
     request.setValue("false", forHTTPHeaderField:"navigation")
-    request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"user-token")
-    request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"user-email")
+    request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"User-Token")
+    request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"User-Email")
 
     @owner.view.loadRequest(request)
   end
