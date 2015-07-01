@@ -8,7 +8,6 @@ class WebResponseDelegate
     self
   end
 
-
   def webView(web_view, shouldStartLoadWithRequest: request, navigationType: nav_type)
     url = request.URL.absoluteString.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
     if url.include? 'link://hybrid/'

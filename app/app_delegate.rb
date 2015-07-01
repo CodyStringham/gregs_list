@@ -1,7 +1,7 @@
 class AppDelegate < PM::Delegate
 
-  # WEB_APPLICATION_URL = 'https://ps4-lfg.herokuapp.com'
-  WEB_APPLICATION_URL = 'http://ps4-lfg-rails.dev'
+  WEB_APPLICATION_URL = 'https://ps4-lfg.herokuapp.com'
+  # WEB_APPLICATION_URL = 'http://ps4-lfg-rails.dev'
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
 
@@ -33,11 +33,6 @@ class AppDelegate < PM::Delegate
     # White navigation button text
     UINavigationBar.appearance.setTintColor(UIColor.whiteColor)
 
-    # if App::Persistence['authToken'].nil?
-    #   @window.rootViewController.setSelectedIndex(3)
-    #   show_welcome_controller
-    # end
-
     true
   end
 
@@ -62,7 +57,12 @@ class AppDelegate < PM::Delegate
     settings_controller = SettingsController.alloc.init
     settings_navigation_controller = UINavigationController.alloc.initWithRootViewController(settings_controller)
 
-    [destiny_navigation_controller, bloodborne_navigation_controller, destiny_json_navigation_controller, settings_navigation_controller]
+    [
+      destiny_navigation_controller,
+      bloodborne_navigation_controller,
+      destiny_json_navigation_controller,
+      settings_navigation_controller
+    ]
   end
 
 end

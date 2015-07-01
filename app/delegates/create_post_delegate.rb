@@ -11,19 +11,21 @@ class CreatePostDelegate
   def webView(web_view, shouldStartLoadWithRequest: request, navigationType: nav_type)
     url = request.URL.absoluteString.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
     if url.include? 'link://hybrid/'
-      # NSURLCache.sharedURLCache.removeAllCachedResponses
-      # @original_owner.performSelector('reload_fresh_data', withObject:nil, afterDelay:0.5)
-      @original_owner.reload_fresh_data
-      @owner.navigationController.popViewControllerAnimated(true)
 
-      App.alert("Post Created!", {
-        cancel_button_title: "Ok",
-        message: "Now everyone can see what you're up to, buddy."
-      })
+      alert_post_created
+      @owner.navigationController.popViewControllerAnimated(true)
+      @original_owner.reload_fresh_data
 
       return false
     end
     return true
+  end
+
+  def alert_post_created
+    App.alert("Post Created!", {
+      cancel_button_title: "Ok",
+      message: "Now everyone can see what you're up to, buddy."
+    })
   end
 
 

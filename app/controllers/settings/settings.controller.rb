@@ -43,7 +43,7 @@ class SettingsController < UIViewController
     # @theButton.layer.borderColor = BW.rgb_color(255, 255, 255)
     # @theButton.layer.borderWidth = 0.5
     @theButton.layer.cornerRadius = 10
-    @theButton.frame = [[((self.view.frame.size.width  / 2 ) - 100), (self.view.frame.size.height - 200)], [200,50]] #[[x-axis, y-axis], [width, height]]
+    @theButton.frame = [[((self.view.frame.size.width  / 2 ) - 100), 100], [200,50]] #[[x-axis, y-axis], [width, height]]
     # @theButton.setTitle('Stop', forState:UIControlStateSelected)
 
     # Add an event for the button when touched
@@ -67,7 +67,7 @@ class SettingsController < UIViewController
     # @theOtherButton.layer.borderColor = BW.rgb_color(255, 255, 255)
     # @theOtherButton.layer.borderWidth = 0.5
     @theOtherButton.layer.cornerRadius = 10
-    @theOtherButton.frame = [[((self.view.frame.size.width  / 2 ) - 100), (self.view.frame.size.height - 500)], [200,50]] #[[x-axis, y-axis], [width, height]]
+    @theOtherButton.frame = [[((self.view.frame.size.width  / 2 ) - 100), 170], [200,50]] #[[x-axis, y-axis], [width, height]]
     # @theOtherButton.setTitle('Stop', forState:UIControlStateSelected)
 
     # Add an event for the button when touched

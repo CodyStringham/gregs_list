@@ -35,7 +35,7 @@ class EventShowPushController < UIViewController
     request.setValue(App::Persistence['authToken'], forHTTPHeaderField:"User-Token")
     request.setValue(App::Persistence['userEmail'], forHTTPHeaderField:"User-Email")
     self.view.loadRequest(request)
-    self.view.performSelector('reload', withObject:nil, afterDelay:0.1)
+    self.view.reload
   end
 
   private

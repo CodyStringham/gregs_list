@@ -22,7 +22,9 @@ class DestinyJsonController < UIViewController
 
   def get_info
     # Our request url, you are going to need a forcase IO api key,
-    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/destiny.json"
+    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/api/v1/destiny.json?user_email=#{App::Persistence['authEmail']}&user_token=#{App::Persistence['authToken']}"
+
+    puts url_string
 
     # Send the request and encode it for us `app/lib/url_request.rb`
     url_response = UrlRequest.send_request(url_string)
@@ -96,7 +98,7 @@ class DestinyJsonPushController < UIViewController
 
   def get_info
     # Our request url, you are going to need a forcase IO api key,
-    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/destiny/#{@title}.json"
+    url_string = "#{AppDelegate::WEB_APPLICATION_URL}/api/v1/destiny/#{@title}.json?user_email=#{App::Persistence['authEmail']}&user_token=#{App::Persistence['authToken']}"
 
     # Send the request and encode it for us `app/lib/url_request.rb`
     url_response = UrlRequest.send_request(url_string)
@@ -118,10 +120,11 @@ class DestinyJsonPushController < UIViewController
      @reuseIdentifier ||= "CELL_IDENTIFIER"
 
      cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
-       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:@reuseIdentifier)
+       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)
      end
 
      cell.textLabel.text = @data[indexPath.row]['post']['title']
+     cell.detailTextLabel.text = "Posted By: #{@data[indexPath.row]['post']['user']['gamertag']}"
 
      cell
    end
