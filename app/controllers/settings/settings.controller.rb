@@ -20,21 +20,6 @@ class SettingsController < UIViewController
     add_logout_button
   end
 
-  def login_behind_scenes
-    @login_client = AFMotion::Client.build("#{AppDelegate::WEB_APPLICATION_URL}/") do
-      header "Accept", "application/json"
-      header "Content-Type", "application/json"
-      request_serializer :json
-      response_serializer :json
-    end
-
-    @login_client.post('api/v1/app_login', {
-      user: {
-        auth_token: App::Persistence['authToken']
-      }
-    })
-  end
-
   def add_clear_cache_button
     @theButton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @theButton.setTitle('Clear Cache', forState:UIControlStateNormal)
@@ -82,6 +67,7 @@ class SettingsController < UIViewController
   def logout_from_webapp
     App::Persistence['authToken'] = nil
     App::Persistence['userEmail'] = nil
+    NSURLCache.sharedURLCache.removeAllCachedResponses
   end
 
 end

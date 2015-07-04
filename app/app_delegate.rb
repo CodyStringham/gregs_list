@@ -1,4 +1,5 @@
-class AppDelegate < PM::Delegate
+class AppDelegate
+  attr_reader :window
 
   WEB_APPLICATION_URL = 'https://ps4-lfg.herokuapp.com'
   # WEB_APPLICATION_URL = 'http://ps4-lfg-rails.dev'
@@ -34,6 +35,13 @@ class AppDelegate < PM::Delegate
     UINavigationBar.appearance.setTintColor(UIColor.whiteColor)
 
     true
+  end
+
+  # Remove this if you are only supporting portrait
+  def application(application, willChangeStatusBarOrientation: new_orientation, duration: duration)
+    # Manually set RMQ's orientation before the device is actually oriented
+    # So that we can do stuff like style views before the rotation begins
+    rmq.device.orientation = new_orientation
   end
 
   private
