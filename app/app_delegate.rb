@@ -55,6 +55,9 @@ class AppDelegate
   def tab_view_controllers
     destiny_controller = DestinyController.alloc.init
     destiny_navigation_controller = UINavigationController.alloc.initWithRootViewController(destiny_controller)
+    if destiny_navigation_controller.respondsToSelector("interactivePopGestureRecognizer")
+      destiny_navigation_controller.interactivePopGestureRecognizer.enabled = false
+    end
 
     bloodborne_controller = BloodborneController.alloc.init
     bloodborne_navigation_controller = UINavigationController.alloc.initWithRootViewController(bloodborne_controller)
